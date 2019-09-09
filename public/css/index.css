@@ -1,0 +1,233 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+.cabecera{
+	background-color: #003A6B;
+	color: white;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.infoToolbar a{
+	padding: 5px;
+	color: white;
+	font-size: .875rem;
+	font-weight: 500;
+}
+
+.redes{
+	padding: 0;
+	margin: 0;
+	border-right: 1px solid #004A87;
+}
+
+.navbarBg{
+	padding: 5px 0;
+	background-color:#004A87;
+	border-bottom: 2px solid #c08e2d;
+}
+
+.Brand h1{
+	text-align: initial;
+	font-family: leelawadee,sans-serif;
+	font-size: 1.18rem;
+	color: white;
+	letter-spacing: 0em;
+	line-height:1em;
+	margin: 0;
+}
+
+.Brand h1 span{
+	font-size: 1.33rem;
+	font-weight: 1000;
+}
+
+.Brand h1:hover{
+	text-decoration: underline;
+}
+
+.Brand a{
+	display: flex;
+	align-items: center;
+}
+
+.Brand a img{
+	height: 80px;
+}
+
+.nav-item.headerNav{
+	padding: 10px;
+	color: #fff;
+	border-right: 1px solid #415b91;
+}
+
+.nav-item.headerNav:hover{
+	color: white;
+	background: #415B91;
+	text-decoration: none;
+}
+
+.icon-buscar{
+	text-align: center;
+	padding: 10px;
+	font-size: 1.2em;
+	color: white;
+	cursor: pointer;
+}
+
+/*<---------------------Arriba header--------------------->*/
+
+.footer{
+	position: absolute;
+	bottom: 0;
+	background: #004a87;
+    border-top: 2px solid #c08e2d;
+    margin-top: 2%;
+    color: #fff;
+    padding: 1rem 0 0;
+}
+
+.paddingFooter{
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (max-width: 1275px) {
+	.contenedor-imagenes img{
+		height: 80px;
+		width: 80px;
+	}
+
+	.imglarga{
+		height: 80px;
+		width: 514px !important;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.imglarga{
+		height: 70px;
+		width: 414px !important;
+	}
+}
+
+/*<---------------------Arriba footer--------------------->*/
+
+
+.hero_row{
+	padding: 15px 0 15px 0;
+}
+
+.loguin_recuadro{
+	border: 1px solid #3a7eb9;
+	border-radius: 5px;
+	border-top: 2px solid #3a7eb9;
+}
+
+.titulo{
+	align-items: center;
+	border-top-left-radius: 2.5px;
+	border-top-right-radius: 2.5px;
+	border-bottom: 1px solid #3a7eb9;
+	background-color: #337ab7;
+}
+
+.loguin_titulo p{
+	text-align: center;
+	color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-family: Roboto,sans-serif;
+}
+
+.form-group{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.loguin_codigo{
+	border-radius: 10px;
+	padding: 5px 0 5px 10px;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.loguin_contraseña{
+	border-radius: 10px;
+	padding: 5px 0 5px 10px;
+	margin-top: 2px;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	width: 100%;
+}
+
+.boton_entrar{
+	width: 100%;
+	padding: 10px 0 10px 0;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	border-style: none;
+	border-radius: 10px;
+	background-color: #5bc0de;
+	color: white;
+}
+
+.boton_entrar:hover{
+	background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.primer_boton{
+	margin: 10px 0 10px 0;
+}
+
+.boton_registrarse{
+	width: 100%;
+	padding: 3px 0 3px 0; 
+	border-style: none;
+	border-radius: 10px;
+	background-color: #97d328;
+	color: white;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.boton_registrarse:hover{
+	background-color: #b2f733;
+	color: white;
+}
+
+.link_ver{
+	
+}
+
+.modal-body h6{
+	margin-top: 5px;
+}
+
+.beneficios_check{
+	padding-left: 25px;
+}
+
+.enviar{
+	color: white;
+	background: #97d328;
+}
+.cerrar{
+	color: white;
+	background:  #dc3545;
+}
+
+.seccion2_fila{
+	margin-bottom: 130px;
+}
