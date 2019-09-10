@@ -23,6 +23,7 @@ class Estudiantes extends Migration
             $table->string('segundo_apellido');
             $table->integer('estrato');
             $table->boolean('estado_sancion');
+            $table->boolean('beneficio');
             $table->integer('horario');
 
 

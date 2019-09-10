@@ -12,4 +12,4 @@
 */
 
 Route::resource('/ayudantias', 'EstudianteController');
-Route::post('/moduloAdmin', 'Auth\LoginController@login')->name('/moduloAdmin');
+// Route::post('/moduloAdmin', 'Auth\LoginController@login')->name('/moduloAdmin');

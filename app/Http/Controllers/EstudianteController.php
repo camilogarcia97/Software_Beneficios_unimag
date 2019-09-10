@@ -59,8 +59,9 @@ class EstudianteController extends Controller
 
                 $estrato = $estudiante->first()->estrato;
                 $sancion = $estudiante->first()->estado_sancion;
+                $beneficio = $estudiante->first()->beneficio;
 
-                if($estrato < 3 && $sancion == false){
+                if($estrato <= 2 && $sancion == false && $beneficio == false){
                     $inscrito = new Inscrito();
                     $inscrito->id_codigoEstudiante = $request->get('codigo');
                     $inscrito->id_convocatoria = 2019;
