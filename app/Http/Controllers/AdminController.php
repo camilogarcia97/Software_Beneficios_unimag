@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Estudiante;
-use App\Inscrito;
 
-class EstudianteController extends Controller
-{   
-     /**
-     * vericar codigo.
+class AdminController extends Controller
+{
+
+    /**
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function verificar(Request $request)
+    public function login()
     {
-        
+        return "ey loging";
     }
-    
 
     /**
      * Display a listing of the resource.
@@ -47,37 +45,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        $codigo_a_verificar = $request->get('codigo');
-        $beneficio_elegido = $request->get('beneficio');
-        $estudiante=estudiante::where('codigoEstudiante',$codigo_a_verificar)->get();
-                    // estudiante::where('codigoEstudiante', '1234')->first();
-
-        if(Inscrito::where('id_codigoEstudiante',$codigo_a_verificar)->exists() == true){//si ya se registro
-            echo "ya esta registrado";
-
-        }else  if(estudiante::where('codigoEstudiante',$codigo_a_verificar)->exists() == true){//si es estudiante
-
-                $estrato = $estudiante->first()->estrato;
-                $sancion = $estudiante->first()->estado_sancion;
-
-                if($estrato < 3 && $sancion == false){
-                    $inscrito = new Inscrito();
-                    $inscrito->id_codigoEstudiante = $request->get('codigo');
-                    $inscrito->id_convocatoria = 2019;
-                    $inscrito->id_beneficio = $request->get('beneficio');
-                    $inscrito->save();
-                }else{
-
-                  echo "no cumple las condiciones para ser inscrito :(";
-
-                }
-        }else{
-
-            echo "no cumple las condiciones para ser inscrito :(";
-
-        }
-        return redirect('/ayudantias'); //redireccionar o mostrar que si se agrego o no
-
+        //
     }
 
     /**

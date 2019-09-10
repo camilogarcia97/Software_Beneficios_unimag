@@ -84,24 +84,27 @@
     <div class="container-fluid hero">
       <div class="row hero_row">
         <div class="col-4 offset-4">
-          <div class="container loguin_recuadro">
-            <div class="row titulo">
-              <div class="col-12 loguin_titulo">
-                <p>LOGIN</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 form-group">
-                <input type="text" class="form-control loguin_codigo" placeholder="Código">
-                <input type="text" class="form-control loguin_contraseña" placeholder="Contraseña">
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-12 boton_contenedor">
-                  <button class="boton_entrar">Entrar</button>
+          <form action="{{route('/moduloAdmin')}}" method="POST">
+            {{csrf_field()}}
+            <div class="container loguin_recuadro">
+              <div class="row titulo">
+                <div class="col-12 loguin_titulo">
+                  <p>LOGIN</p>
                 </div>
               </div>
-          </div>
+              <div class="row">
+                <div class="col-12 form-group">
+                  <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codioLogin" required="">
+                  <input type="text" class="form-control loguin_contraseña" placeholder="Contraseña" name="contraseñaLogin" required>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-12 boton_contenedor">
+                    <button type="submit" class="boton_entrar">Entrar</button>
+                  </div>
+                </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -184,7 +187,7 @@
           </button>
         </div>
 
-        <form action="/estudiantes" method="POST">
+        <form action="/ayudantias" method="POST">
           <div class="modal-body">
             <div class="container">
               <div class="row">

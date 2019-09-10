@@ -11,4 +11,5 @@
 |
 */
 
-Route::resource('/estudiantes', 'EstudianteController');
+Route::resource('/ayudantias', 'EstudianteController');
+Route::post('/moduloAdmin', 'Auth\LoginController@login')->name('/moduloAdmin');
