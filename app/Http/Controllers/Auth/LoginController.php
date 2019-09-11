@@ -18,17 +18,21 @@ class LoginController extends Controller
 
 
 
-        if(Director::where('idDirector',$info['codigoLogin'])->exists() ){
+        if(Director::where('idDirector',$info['codigoLogin'])
+                    ->where('contraseña',$info['contraseñaLogin'])
+                    ->exists() ){
 
             return "eres director";
 
-        }else if(Admin::where('idAdministrador',$info['codigoLogin'])->exists() ){
+        }else if(Admin::where('idAdministrador',$info['codigoLogin'])
+                        ->where('contraseña',$info['contraseñaLogin'])
+                        ->exists() ){
 
-            return "eres Admin";
+            return view('moduloAdministrador');
 
         }
 
 
-    return "error"." ".$info['codigoLogin'];
+    return "error, algo salio mal";
     }
 }
