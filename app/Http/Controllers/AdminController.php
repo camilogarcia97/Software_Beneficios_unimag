@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Convocatoria;
 
 class AdminController extends Controller
 {
@@ -12,19 +13,10 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function login()
-    {
-        return "ey loging";
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('index');
+        $datos['convocatoria']=convocatoria::paginate();
+        return view('admin',$datos);
     }
 
     /**
@@ -34,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin_create');
     }
 
     /**
@@ -45,7 +37,11 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosdelaconvocatoria = request()->all();
+
+        convocatoria::insert($datosdelaconvocatoria);
+
+        return view('admin');
     }
 
     /**
@@ -67,7 +63,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('Admin_edit');
     }
 
     /**

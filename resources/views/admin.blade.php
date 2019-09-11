@@ -67,36 +67,48 @@
       </div>
     </header>
 
-       <div class="container-fluid hero">
-      <div class="row hero_row">
-        <div class="col-sm-8 col-md-4 ">
-          <div class="container loguin_recuadro">
-            <div class="row titulo">
-              <div class="col-12 loguin_titulo">
-                <p>Convocatorias de beneficios</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 form-group">
-                <h6>Fecha de inicio</h6>
-                <input type="date" class="form-control loguin_codigo date" placeholder="Código">
-                <h6>Fecha de finalizacion</h6>
-                <input type="date" class="form-control loguin_contraseña date" placeholder="Contraseña">
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-12 boton_contenedor">
-                  <button class="boton_entrar">Establecer</button>
-                </div>
-              </div>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">id_administrador</th>
+                <th scope="col">perido</th>
+                <th scope="col">f_inicio</th>
+                <th scope="col">f_fin</th>
+                <th scope="col">cupo almuerzos</th>
+                <th scope="col">cupo refrigerio</th>
+                <th scope="col">id_convocatoria</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($convocatoria as $eso)
+              <tr>
+                <th scope="row">1</th>
+                <td>{{$eso->id_Administrador}}</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
-
-
-
+    <footer class="container-fluid footer">
+        <div class="col-lg-10 offset-lg-1 contenedor-imagenes">
+            <img src="../img/LogoUnimag.png" alt="">
+            <img src="../img/2footer.png" alt="">
+            <img src="../img/3footer.png" alt="">
+            <img src="../img/4footer.png" alt="">
+            <img class="imglarga" src="../img/5footer.png" alt="">    
+        </div>
+    </footer>
 
 
     <!-- Optional JavaScript -->
@@ -106,13 +118,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 
- <footer class="container-fluid footer">
-        <div class="col-lg-10 offset-lg-1 contenedor-imagenes">
-            <img src="../img/LogoUnimag.png" alt="">
-            <img src="../img/2footer.png" alt="">
-            <img src="../img/3footer.png" alt="">
-            <img src="../img/4footer.png" alt="">
-            <img class="imglarga" src="../img/5footer.png" alt="">    
-        </div>
-    </footer>
+ 
 </html>

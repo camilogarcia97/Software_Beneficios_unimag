@@ -192,7 +192,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <input type="text" class="form-control loguin_codigo" placeholder="Código" id="codigo" name="codigo" required="*">
+                  <input type="number" class="form-control loguin_codigo" placeholder="Código" id="codigo" name="codigo" required="*">
                 </div>
               </div>
             </div>
