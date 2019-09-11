@@ -21,6 +21,7 @@ class Directors extends Migration
             $table->string('segundo_nombre');
             $table->string('primer_apellido');
             $table->string('segundo_apellido');
+            $table->integer('role_id');
         });
     }
 

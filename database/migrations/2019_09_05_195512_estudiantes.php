@@ -25,6 +25,8 @@ class Estudiantes extends Migration
             $table->boolean('estado_sancion');
             $table->boolean('beneficio');
             $table->integer('horario');
+            $table->integer('role_id');
+            $table->rememberToken();
 
 
         });

@@ -84,7 +84,7 @@
     <div class="container-fluid hero">
       <div class="row hero_row">
         <div class="col-4 offset-4">
-          <form action="" method="POST">
+          <form action="/moduloAdmin" method="POST">
             {{csrf_field()}}
             <div class="container loguin_recuadro">
               <div class="row titulo">
@@ -94,7 +94,7 @@
               </div>
               <div class="row">
                 <div class="col-12 form-group">
-                  <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codioLogin" required="">
+                  <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codigoLogin" required="">
                   <input type="text" class="form-control loguin_contraseña" placeholder="Contraseña" name="contraseñaLogin" required>
                 </div>
               </div>
