@@ -15,8 +15,8 @@ class Horarios extends Migration
     {
         Schema::create('horarios', function (Blueprint $table) {
             $table->timestamps();
-            $table->integer('id_horario');
-            $table->date('dia');
+            $table->integer('estudiante_id');
+            $table->string('dia_semana');
         });
     }
 
