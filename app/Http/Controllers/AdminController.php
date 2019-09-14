@@ -40,7 +40,7 @@ class AdminController extends Controller
         $datosdelaconvocatoria = request()->all();
 
         convocatoria::insert($datosdelaconvocatoria);
-        return view('admin');
+        return redirect('/admin');
     }
 
     /**
