@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,7 +13,7 @@ class Convocatorias extends Migration
      */
     public function up()
     {
-        Schema::create('convocatorias', function (Blueprint $table) {
+        Schema::create('convocatorias', function (Blueprint $table) {           
             $table->timestamps();
             $table->integer('id_Administrador');
             $table->integer('periodo');
@@ -21,7 +21,7 @@ class Convocatorias extends Migration
             $table->date('fecha_fin');
             $table->integer('numero_cupos_almuerzos');
             $table->integer('numero_cupos_refrigerios');
-            $table->integer('idConvocatoria');
+            $table->integer('id');
         });
     }
 

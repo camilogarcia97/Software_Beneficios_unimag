@@ -7,7 +7,7 @@ use App\Convocatoria;
 
 class AdminController extends Controller
 {
-
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +15,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $datos['convocatoria']=convocatoria::paginate();
-        return view('admin',$datos);
+        $datos=convocatoria::paginate();
+        return view('admin',compact('datos'));
     }
 
     /**
@@ -40,7 +40,6 @@ class AdminController extends Controller
         $datosdelaconvocatoria = request()->all();
 
         convocatoria::insert($datosdelaconvocatoria);
-
         return view('admin');
     }
 
@@ -63,7 +62,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        return view('Admin_edit');
+        $datos_editar = convocatoria::find($id);
+        return view('Admin_edit',compact('datos_editar'));
     }
 
     /**
@@ -75,9 +75,17 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        // dd($request->all());
+        $datos = convocatoria::find($id);
+        $datos->periodo = $request->get('periodo');
+        $datos->fecha_inicio = $request->get('fecha_inicio');   
+        $datos->fecha_fin = $request->get('fecha_fin');
+        $datos->numero_cupos_almuerzos = $request->get('numero_cupos_almuerzos');
+        $datos->numero_cupos_refrigerios = $request->get('numero_cupos_refrigerios');
+        $datos->save();
 
+        return redirect ('/admin');
+    }
     /**
      * Remove the specified resource from storage.
      *

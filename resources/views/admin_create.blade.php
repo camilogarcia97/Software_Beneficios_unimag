@@ -85,10 +85,9 @@
           
             <input class="form-control" type="text" name="periodo" id="periodo" placeholder="periodo">
           
-            <input class="form-control" type="text" name="idConvocatoria" id="idConvocatoria" placeholder="idConvocatoria">
+            <input class="form-control" type="text" name="id" id="id" placeholder="idConvocatoria">
           
             <input class="btn btn-primary" type="submit" >
-            <a href="">Editar</a>
           </form>
         </div>
       </div>

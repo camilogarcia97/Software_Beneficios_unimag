@@ -80,22 +80,25 @@
                 <th scope="col">cupo almuerzos</th>
                 <th scope="col">cupo refrigerio</th>
                 <th scope="col">id_convocatoria</th>
+                <th scope="col">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($convocatoria as $eso)
+              @foreach($datos as $eso)
               <tr>
-                <th scope="row">1</th>
-                <td>{{$eso->id_Administrador}}</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <th>{{$eso->id_Administrador}}</th>
+                <td>{{$eso->periodo}}</td>
+                <td>{{$eso->fecha_inicio}}</td>
+                <td>{{$eso->fecha_fin}}</td>
+                <td>{{$eso->numero_cupos_almuerzos}}</td>
+                <td>{{$eso->numero_cupos_refrigerios}}</td>
+                <td>{{$eso->id}}</td>
+                <td> <a href="/admin/{{$eso->id}}/edit"> Editar </a> </td>
               </tr>
               @endforeach
             </tbody>
           </table>
+
         </div>
       </div>
     </div>

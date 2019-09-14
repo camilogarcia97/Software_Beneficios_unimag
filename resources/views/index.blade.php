@@ -84,7 +84,7 @@
     <div class="container-fluid hero">
       <div class="row hero_row">
         <div class="col-4 offset-4">
-          <form action="{{route('/moduloAdmin')}}" method="POST">
+          <form action="" method="POST">
             {{csrf_field()}}
             <div class="container loguin_recuadro">
               <div class="row titulo">
