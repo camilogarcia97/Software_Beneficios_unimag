@@ -18,7 +18,6 @@ class Inscritos extends Migration
             $table->integer('id_codigoEstudiante');
             $table->integer('id_convocatoria');
             $table->integer('id_beneficio');
-            $table->integer('idInscrito');
         });
     }
 
