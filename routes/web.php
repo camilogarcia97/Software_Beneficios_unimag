@@ -12,7 +12,5 @@
 */
 
 Route::resource('/ayudantias', 'EstudianteController');
-
-Route::resource('/admin', 'AdminController');
-
-
+Route::resource('/admin','AdminController');
+Route::post('/Login', 'Auth\LoginController@login')->name('/Login');

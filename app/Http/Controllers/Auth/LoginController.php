@@ -28,7 +28,7 @@ class LoginController extends Controller
                         ->where('contraseña',$info['contraseñaLogin'])
                         ->exists() ){
 
-            return view('moduloAdministrador');
+            return redirect ('/admin');
 
         }
 
