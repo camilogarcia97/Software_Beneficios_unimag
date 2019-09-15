@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Inscrito;
+use App\Beneficiario;
 use App\Convocatoria;
-
-class AdminController extends Controller
+class BeneficiarioController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +15,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $datos=convocatoria::paginate();
-        return view('admin',compact('datos'));
+        //
     }
 
     /**
@@ -26,7 +25,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('Admin_create');
+        //
     }
 
     /**
@@ -37,10 +36,25 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $datosdelaconvocatoria = request()->all();
+                //id almuerzo 200
+        $cantidadCuposAlmuerzo = Convocatoria::select('numero_cupos_almuerzos')->get();
+        //id almuerzo 100
+        $cantidadCuposRefrigerio = Convocatoria::select('numero_cupos_refrigerios')->get();
 
-        convocatoria::insert($datosdelaconvocatoria);
-        return redirect ('/admin');
+       $sorteoBeneficiariosAlmuerzo = Inscrito::select('id_codigoEstudiante')
+                             ->where('id_beneficio','200')
+                             ->inRandomOrder()
+                             ->limit($cantidadCuposAlmuerzo[0]->numero_cupos_almuerzos)
+                             ->get();
+
+       $sorteoBeneficiariosRefrijerio = Inscrito::select('id_codigoEstudiante')
+                             ->where('id_beneficio','100')
+                             ->inRandomOrder()
+                             ->limit($cantidadCuposRefrigerio[0]->numero_cupos_refrigerios)
+                             ->get();
+
+        
+        // return $sorteoBeneficiariosAlmuerzo."-------------".$sorteoBeneficiariosRefrijerio; 
     }
 
     /**
@@ -62,8 +76,7 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $datos_editar = convocatoria::find($id);
-        return view('admin_edit',compact('datos_editar'));
+        //
     }
 
     /**
@@ -75,17 +88,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
-        $datos = convocatoria::find($id);
-        $datos->periodo = $request->get('periodo');
-        $datos->fecha_inicio = $request->get('fecha_inicio');   
-        $datos->fecha_fin = $request->get('fecha_fin');
-        $datos->numero_cupos_almuerzos = $request->get('numero_cupos_almuerzos');
-        $datos->numero_cupos_refrigerios = $request->get('numero_cupos_refrigerios');
-        $datos->save();
 
-        return redirect ('/admin');
     }
+
     /**
      * Remove the specified resource from storage.
      *

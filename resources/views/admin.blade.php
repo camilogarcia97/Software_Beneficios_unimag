@@ -66,6 +66,20 @@
          </div>
       </div>
     </header>
+    
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="col d-flex justify-content-center m-2">
+          <a href="/admin/create" class="btn btn-primary">Crear convocatoria</a>
+        </div>
+        
+        <div class="col d-flex justify-content-center m-2">
+          <form action="/SorteoBeneficiarios" method="POST">
+           <button type="submit" class="btn btn-primary ">Sortear beneficios</button>
+         </form>
+        </div>
+      </div>
+    </div>
 
     <div class="container">
       <div class="row">
