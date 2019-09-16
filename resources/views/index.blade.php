@@ -76,7 +76,7 @@
       </div>
       <div class="row segundo_boton">
         <div class="col-6 offset-5">
-          <a href="" class="link_ver">Ver lista de seleccionados</a>
+          <a href="/SorteoBeneficiarios" class="link_ver">Ver lista de seleccionados</a>
         </div>
       </div>
     </div>

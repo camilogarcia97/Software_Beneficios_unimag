@@ -87,7 +87,7 @@
           
             <input class="form-control" type="text" name="id" id="id" placeholder="idConvocatoria">
           
-            <input class="btn btn-primary" type="submit" >
+            <input class="btn btn-primary m-2" type="submit" >
           </form>
         </div>
       </div>

@@ -17,7 +17,8 @@ class Beneficiarios extends Migration
             $table->timestamps();
             $table->integer('idFalla');
             $table->integer('sede');
-            $table->integer('id_inscritos');
+            $table->integer('id_beneficio');
+            $table->integer('id_inscrito');
         });
     }
 

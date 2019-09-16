@@ -81,17 +81,23 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">codigo</th>
-                <th scope="col">sede</th>
-                <th scope="col">fallas</th>
+                <th class="text-center" scope="col">Codigo</th>
+                <!-- <th class="text-center" scope="col">Sede</th> -->
+                <th class="text-center" scope="col">Fallas</th>
+                <th class="text-center" scope="col">Beneficio</th>
               </tr>
             </thead>
             <tbody>
               @foreach($datos as $eso)
               <tr>
-                <th>{{$eso->id_inscritos}}</th>
-                <td>{{$eso->sede}}</td>
-                <td>{{$eso->idFalla}}</td>
+                <th class="text-center">{{$eso->id_inscrito}}</th>
+                <!-- <td >{{$eso->sede}}</td> -->
+                <td class="text-center">{{$eso->idFalla}}</td>
+                <td class="text-center">@if($eso->id_beneficio == 100)
+                      <h6>Almuerzo</h6>
+                    @else
+                     <h6>Refrigerio</h6> 
+                    @endif</td>
               </tr>
               @endforeach
             </tbody>
