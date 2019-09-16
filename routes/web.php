@@ -13,8 +13,9 @@
 
 Route::resource('/ayudantias', 'EstudianteController');
 
+
 Route::resource('/admin', 'AdminController');
 
 Route::resource('/SorteoBeneficiarios', 'BeneficiarioController');
 
-
+Route::post('/Login', 'Auth\LoginController@login')->name('/Login');

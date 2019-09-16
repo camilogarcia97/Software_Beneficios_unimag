@@ -84,7 +84,7 @@
     <div class="container-fluid hero">
       <div class="row hero_row">
         <div class="col-4 offset-4">
-          <form action="" method="POST">
+          <form action="/Login" method="POST">
             {{csrf_field()}}
             <div class="container loguin_recuadro">
               <div class="row titulo">
@@ -94,7 +94,7 @@
               </div>
               <div class="row">
                 <div class="col-12 form-group">
-                  <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codioLogin" required="">
+                  <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codigoLogin" required="">
                   <input type="text" class="form-control loguin_contraseña" placeholder="Contraseña" name="contraseñaLogin" required>
                 </div>
               </div>
@@ -208,17 +208,13 @@
           <div class="container">
             <div class="row">
               <div class="col-12 beneficios_check">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="beneficio" id="exampleRadios1" value="100" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                    Almuerzo
-                  </label>
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="customRadio1" name="beneficio" class="custom-control-input" value="100" checked>
+                  <label class="custom-control-label" for="customRadio1" >Almuerzo</label>
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="beneficio" id="exampleRadios2" value="200">
-                  <label class="form-check-label" for="exampleRadios2">
-                    Refrigerio
-                  </label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="beneficio" class="custom-control-input" value="200">
+                    <label class="custom-control-label" for="customRadio2">Refrigerio</label>
                 </div>
               </div>
             </div>
@@ -233,6 +229,47 @@
                     <option >Sede Principal</option>
                     <option >Sede Centro</option>
                   </select>
+                </div>
+                <h6>Seleccione los dias que quiere recibir el beneficio</h6>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="Lunes" name="horario[]" value="Lunes" checked>
+                      <label class="custom-control-label" for="Lunes">Lunes</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="Martes" name="horario[]" value="Martes">
+                      <label class="custom-control-label" for="Martes">Martes</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="Miercoles" name="horario[]" value="Miercoles" checked>
+                      <label class="custom-control-label" for="Miercoles">Miercoles</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="Jueves" name="horario[]" value="Jueves">
+                      <label class="custom-control-label" for="Jueves">Jueves</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                      <input type="checkbox" class="custom-control-input" id="Viernes" name="horario[]" value="Viernes" checked>
+                      <label class="custom-control-label" for="Viernes">Viernes</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

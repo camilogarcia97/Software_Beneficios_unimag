@@ -15,7 +15,7 @@ class Estudiantes extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->timestamps();
-            $table->integer('codigoEstudiante');
+            $table->integer('id');
             $table->string('contraseña');
             $table->string('primer_nombre');
             $table->string('segundo_nombre');
@@ -23,8 +23,8 @@ class Estudiantes extends Migration
             $table->string('segundo_apellido');
             $table->integer('estrato');
             $table->boolean('estado_sancion');
-            $table->integer('horario');
-
+            $table->boolean('beneficio');
+            $table->rememberToken();
 
         });
     }
