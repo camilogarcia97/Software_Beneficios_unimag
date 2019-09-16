@@ -6,19 +6,10 @@ use Illuminate\Http\Request;
 use App\Estudiante;
 use App\Inscrito;
 use App\Horario;
+use App\Convocatoria;
 
 class EstudianteController extends Controller
 {   
-     /**
-     * vericar codigo.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function verificar(Request $request)
-    {
-        
-    }
-    
 
     /**
      * Display a listing of the resource.
@@ -27,7 +18,12 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        return view('index');
+        if(Convocatoria::count() >= 1){
+            $convacatoria = true;
+        }else{
+            $convacatoria = false;
+        }
+        return view('index',compact('convacatoria'));
     }
 
     /**

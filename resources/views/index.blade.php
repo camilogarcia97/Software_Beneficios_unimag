@@ -69,18 +69,22 @@
     </header>
 
     <div class="container">
+      @if($convacatoria)
       <div class="row primer_boton">
-        <div class="col-12">
-          <button data-toggle="modal" data-target="#exampleModalCenter" class="col-4 offset-4 boton_registrarse">Registrarte en la convocatoria</button>
-        </div>
+          <div class="col-12">
+            <button data-toggle="modal" data-target="#exampleModalCenter" class="col-4 offset-4 boton_registrarse">Registrarte en la convocatoria</button>
+          </div>
       </div>
       <div class="row segundo_boton">
-        <div class="col-6 offset-5">
-          <a href="/SorteoBeneficiarios" class="link_ver">Ver lista de seleccionados</a>
-        </div>
+          <div class="col-6 offset-5">
+            <a href="/SorteoBeneficiarios" class="link_ver">Ver lista de seleccionados</a>
+          </div>
       </div>
+      @else
+      <div class="m-5"></div>
+      @endif
     </div>
-    
+      
     <div class="container-fluid hero">
       <div class="row hero_row">
         <div class="col-4 offset-4">
