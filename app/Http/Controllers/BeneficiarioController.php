@@ -15,7 +15,8 @@ class BeneficiarioController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Beneficiario::paginate();
+        return view('listaBeneficiarios',compact('datos'));
     }
 
     /**
@@ -41,20 +42,39 @@ class BeneficiarioController extends Controller
         //id almuerzo 100
         $cantidadCuposRefrigerio = Convocatoria::select('numero_cupos_refrigerios')->get();
 
-       $sorteoBeneficiariosAlmuerzo = Inscrito::select('id_codigoEstudiante')
+       $sorteoBeneficiariosAlmuerzo = Inscrito::select('id_codigoEstudiante','idInscrito')
                              ->where('id_beneficio','200')
                              ->inRandomOrder()
                              ->limit($cantidadCuposAlmuerzo[0]->numero_cupos_almuerzos)
                              ->get();
 
-       $sorteoBeneficiariosRefrijerio = Inscrito::select('id_codigoEstudiante')
+       $sorteoBeneficiariosRefrijerio = Inscrito::select('id_codigoEstudiante','idInscrito')
                              ->where('id_beneficio','100')
                              ->inRandomOrder()
                              ->limit($cantidadCuposRefrigerio[0]->numero_cupos_refrigerios)
                              ->get();
 
+        for ($i=0; $i < count($sorteoBeneficiariosAlmuerzo); $i++) { 
+            $beneficiario = new Beneficiario();
+            $beneficiario->id_inscritos = $sorteoBeneficiariosAlmuerzo[$i]->id_codigoEstudiante;
+            $beneficiario->sede = $sorteoBeneficiariosAlmuerzo[$i]->idInscrito;
+            $beneficiario->idFalla = 0;
+
+            $beneficiario->save();
+        }
+
+        for ($i=0; $i < count($sorteoBeneficiariosRefrijerio); $i++) { 
+            $beneficiario = new Beneficiario();
+
+            $beneficiario->id_inscritos = $sorteoBeneficiariosRefrijerio[$i]->id_codigoEstudiante;
+            $beneficiario->sede = $sorteoBeneficiariosRefrijerio[$i]->idInscrito;
+            $beneficiario->idFalla = 0;
+
+            $beneficiario->save();
+        }
         
         // return $sorteoBeneficiariosAlmuerzo."-------------".$sorteoBeneficiariosRefrijerio; 
+        return redirect ('/SorteoBeneficiarios');
     }
 
     /**
