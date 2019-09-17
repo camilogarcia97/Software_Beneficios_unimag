@@ -17,7 +17,7 @@
     <header class="cabecera">
       <div class="container-fluid">
         <div class="row toolbar">
-            <div class="col-7 offset-5 infoToolbar">
+            <div class="col-md-7 offset-md-5 col-12 infoToolbar">
               <a class="redes icon-facebook" href=""></a>
               <a class="redes icon-fuego" href=""></a>
               <a class="redes icon-instagram" href=""></a>
@@ -70,12 +70,12 @@
 
     <div class="container">
       <div class="row primer_boton">
-        <div class="col-12">
-          <button data-toggle="modal" data-target="#exampleModalCenter" class="col-4 offset-4 boton_registrarse">Registrarte en la convocatoria</button>
+        <div class="col-12 d-flex justify-content-center ">
+          <button data-toggle="modal" data-target="#exampleModalCenter" class="col-8 col-md-4 boton_registrarse">Registrarte en la convocatoria</button>
         </div>
       </div>
       <div class="row segundo_boton">
-        <div class="col-6 offset-5">
+        <div class="col-12 d-flex justify-content-center">
           <a href="/SorteoBeneficiarios" class="link_ver">Ver lista de seleccionados</a>
         </div>
       </div>
@@ -83,7 +83,7 @@
     
     <div class="container-fluid hero">
       <div class="row hero_row">
-        <div class="col-4 offset-4">
+        <div class="col-lg-4 offset-lg-4 col-sm-12">
           <form action="/Login" method="POST">
             {{csrf_field()}}
             <div class="container loguin_recuadro">
@@ -111,7 +111,7 @@
 
     <div class="container-fluid seccion2">
       <div class="row ">
-        <div class="col-8 offset-2 seccion2_fila">
+        <div class="col-md-8 offset-md-2 seccion2_fila col-12">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Ayuda
@@ -168,12 +168,12 @@
       </div>
     </div>
     <footer class="container-fluid footer">
-        <div class="col-lg-10 offset-lg-1 contenedor-imagenes">
+        <div class="d-flex justify-content-center contenedor-imagenes m-2">
             <img src="../img/LogoUnimag.png" alt="">
             <img src="../img/2footer.png" alt="">
             <img src="../img/3footer.png" alt="">
             <img src="../img/4footer.png" alt="">
-            <img class="imglarga" src="../img/5footer.png" alt="">    
+            <img class="imglarga" src="../img/5footer.png" alt="">
         </div>
     </footer>
 

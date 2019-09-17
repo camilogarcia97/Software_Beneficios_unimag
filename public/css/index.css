@@ -119,6 +119,12 @@ body{
 	}
 }
 
+@media screen and (max-width: 425px) {
+	.imglarga{
+		display: none;
+	}
+}
+
 /*<---------------------Arriba footer--------------------->*/
 
 
@@ -229,5 +235,5 @@ body{
 }
 
 .seccion2_fila{
-	margin-bottom: 130px;
+	margin-bottom: 150px;
 }
