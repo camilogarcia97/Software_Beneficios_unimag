@@ -66,14 +66,6 @@
          </div>
       </div>
     </header>
-    
-    <div class="container-fluid">
-      <div class="row ">
-        <div class="col d-flex justify-content-center m-2">
-          <a href="/admin" class="btn btn-secondary">Modulo admin</a>
-        </div>
-      </div>
-    </div>
 
     <div class="container">
       <div class="row">
@@ -83,7 +75,7 @@
               <tr>
                 <th class="text-center" scope="col">Codigo</th>
                 <!-- <th class="text-center" scope="col">Sede</th> -->
-                <th class="text-center" scope="col">Fallas</th>
+                <!-- <th class="text-center" scope="col">Fallas</th> -->
                 <th class="text-center" scope="col">Beneficio</th>
               </tr>
             </thead>
@@ -92,7 +84,7 @@
               <tr>
                 <th class="text-center">{{$eso->id_inscrito}}</th>
                 <!-- <td >{{$eso->sede}}</td> -->
-                <td class="text-center">{{$eso->idFalla}}</td>
+                <!-- <td class="text-center">{{$eso->idFalla}}</td> -->
                 <td class="text-center">@if($eso->id_beneficio == 100)
                       <h6>Almuerzo</h6>
                     @else

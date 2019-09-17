@@ -59,7 +59,7 @@ class BeneficiarioController extends Controller
             $beneficiario->id_inscrito = $sorteoBeneficiariosAlmuerzo[$i]->id_codigoEstudiante;
             // $beneficiario->sede = $sorteoBeneficiariosAlmuerzo[$i]->id_codigoEstudiante;
             $beneficiario->id_beneficio = $sorteoBeneficiariosAlmuerzo[$i]->id_beneficio;
-            $beneficiario->idFalla = 0;
+            // $beneficiario->idFalla = 0;
 
             $beneficiario->save();
         }
@@ -70,13 +70,13 @@ class BeneficiarioController extends Controller
             $beneficiario->id_inscrito = $sorteoBeneficiariosRefrijerio[$i]->id_codigoEstudiante;
             // $beneficiario->sede = $sorteoBeneficiariosRefrijerio[$i]->id_codigoEstudiante;
             $beneficiario->id_beneficio = $sorteoBeneficiariosRefrijerio[$i]->id_beneficio;
-            $beneficiario->idFalla = 0;
+            // $beneficiario->idFalla = 0;
 
             $beneficiario->save();
         }
         
         // return $sorteoBeneficiariosAlmuerzo."-------------".$sorteoBeneficiariosRefrijerio; 
-        return redirect ('/SorteoBeneficiarios');
+        return redirect ('/listaBeneficiarios');
     }
 
     /**

@@ -69,6 +69,7 @@
     </header>
 
     <div class="container">
+      @if($convacatoria)
       <div class="row primer_boton">
         <div class="col-12 d-flex justify-content-center ">
           <button data-toggle="modal" data-target="#exampleModalCenter" class="col-8 col-md-4 boton_registrarse">Registrarte en la convocatoria</button>
@@ -79,8 +80,11 @@
           <a href="/SorteoBeneficiarios" class="link_ver">Ver lista de seleccionados</a>
         </div>
       </div>
+      @else
+      <div class="m-5"></div>
+      @endif
     </div>
-    
+      
     <div class="container-fluid hero">
       <div class="row hero_row">
         <div class="col-lg-4 offset-lg-4 col-sm-12">
