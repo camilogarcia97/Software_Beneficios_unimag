@@ -13,6 +13,7 @@
 
 Route::resource('/ayudantias', 'EstudianteController');
 
+Route::resource('/cafeteria', 'EmpleadoController');
 
 Route::resource('/admin', 'AdminController');
 

@@ -77,7 +77,7 @@
       </div>
       <div class="row segundo_boton">
         <div class="col-12 d-flex justify-content-center">
-          <a href="/SorteoBeneficiarios" class="link_ver">Ver lista de seleccionados</a>
+          <a href="/listaBeneficiarios" class="link_ver">Ver lista de seleccionados</a>
         </div>
       </div>
       @else
@@ -99,7 +99,7 @@
               <div class="row">
                 <div class="col-12 form-group">
                   <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codigoLogin" required="">
-                  <input type="text" class="form-control loguin_contraseña" placeholder="Contraseña" name="contraseñaLogin" required>
+                  <input type="password" class="form-control loguin_contraseña" placeholder="Contraseña" name="contraseñaLogin" required>
                 </div>
               </div>
               <div class="row">
@@ -229,9 +229,9 @@
               <div class="col-12">
                 <div class="form-group col-12">
                   <label for="inputState">Sedes</label>
-                  <select id="inputState" class="form-control">
-                    <option >Sede Principal</option>
-                    <option >Sede Centro</option>
+                  <select id="inputState" class="form-control" name="sede">
+                    <option value="1" >Sede Principal</option>
+                    <option value="2">Sede Centro</option>
                   </select>
                 </div>
                 <h6>Seleccione los dias que quiere recibir el beneficio</h6>

@@ -311,7 +311,7 @@ body{
           
             <input class="form-control" type="text" name="periodo" id="periodo" placeholder="periodo" value="{{$datos_editar->periodo}}">
           
-            <input value="Enviar" placeholder="Editar" class="btn btn-primary" type="submit" >
+            <input value="Editar" placeholder="Editar" class="btn btn-primary" type="submit" >
           </form>
         </div> 
       </div> 

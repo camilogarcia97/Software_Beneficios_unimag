@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Inscrito;
 use App\Beneficiario;
 use App\Convocatoria;
+use App\Falla;
 class BeneficiarioController extends Controller
 {
     /**
@@ -42,13 +43,13 @@ class BeneficiarioController extends Controller
         //id almuerzo 100
         $cantidadCuposRefrigerio = Convocatoria::select('numero_cupos_refrigerios')->get();
 
-       $sorteoBeneficiariosAlmuerzo = Inscrito::select('id_codigoEstudiante','id_beneficio')
+       $sorteoBeneficiariosAlmuerzo = Inscrito::select('id_codigoEstudiante','id_beneficio','sede')
                              ->where('id_beneficio','200')
                              ->inRandomOrder()
                              ->limit($cantidadCuposAlmuerzo[0]->numero_cupos_almuerzos)
                              ->get();
 
-       $sorteoBeneficiariosRefrijerio = Inscrito::select('id_codigoEstudiante','id_beneficio')
+       $sorteoBeneficiariosRefrijerio = Inscrito::select('id_codigoEstudiante','id_beneficio','sede')
                              ->where('id_beneficio','100')
                              ->inRandomOrder()
                              ->limit($cantidadCuposRefrigerio[0]->numero_cupos_refrigerios)
@@ -57,22 +58,27 @@ class BeneficiarioController extends Controller
         for ($i=0; $i < count($sorteoBeneficiariosAlmuerzo); $i++) { 
             $beneficiario = new Beneficiario();
             $beneficiario->id_inscrito = $sorteoBeneficiariosAlmuerzo[$i]->id_codigoEstudiante;
-            // $beneficiario->sede = $sorteoBeneficiariosAlmuerzo[$i]->id_codigoEstudiante;
+            $beneficiario->sede = $sorteoBeneficiariosAlmuerzo[$i]->sede;
             $beneficiario->id_beneficio = $sorteoBeneficiariosAlmuerzo[$i]->id_beneficio;
-            // $beneficiario->idFalla = 0;
-
             $beneficiario->save();
+
+            $inscritofallas = new Falla();
+            $inscritofallas->id_beneficiario = $sorteoBeneficiariosAlmuerzo[$i]->id_codigoEstudiante;
+            $inscritofallas->falla = 0; 
+            $inscritofallas->save();
         }
 
         for ($i=0; $i < count($sorteoBeneficiariosRefrijerio); $i++) { 
             $beneficiario = new Beneficiario();
-
             $beneficiario->id_inscrito = $sorteoBeneficiariosRefrijerio[$i]->id_codigoEstudiante;
-            // $beneficiario->sede = $sorteoBeneficiariosRefrijerio[$i]->id_codigoEstudiante;
+            $beneficiario->sede = $sorteoBeneficiariosRefrijerio[$i]->sede;
             $beneficiario->id_beneficio = $sorteoBeneficiariosRefrijerio[$i]->id_beneficio;
-            // $beneficiario->idFalla = 0;
-
             $beneficiario->save();
+
+            $inscritofallas = new Falla();
+            $inscritofallas->id_beneficiario=$sorteoBeneficiariosRefrijerio[$i]->id_codigoEstudiante;
+            $inscritofallas->falla = 0; 
+            $inscritofallas->save();
         }
         
         // return $sorteoBeneficiariosAlmuerzo."-------------".$sorteoBeneficiariosRefrijerio; 

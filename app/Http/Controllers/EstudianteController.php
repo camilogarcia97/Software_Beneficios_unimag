@@ -45,7 +45,6 @@ class EstudianteController extends Controller
     public function store(Request $request)
     {
         $codigo_a_verificar = $request->get('codigo');
-        $beneficio_elegido = $request->get('beneficio');
         $horarioSeleccionado = $request->get('horario');
         $estudiante=estudiante::where('id',$codigo_a_verificar)->get();
                     // estudiante::where('codigoEstudiante', '1234')->first();
@@ -64,14 +63,16 @@ class EstudianteController extends Controller
                     $inscrito->id_codigoEstudiante = $request->get('codigo');
                     $inscrito->id_convocatoria = 2019;
                     $inscrito->id_beneficio = $request->get('beneficio');
+                    $inscrito->sede = $request->get('sede');
                     $inscrito->save();
 
                     for ($i = 0; $i < count($horarioSeleccionado); $i++) {
                         $horario = new Horario();
-                        $horario->estudiante_id = 2019; 
+                        $horario->estudiante_id = $request->get('codigo'); 
                         $horario->dia_semana = $horarioSeleccionado[$i];
                         $horario->save();
                     }
+
 
                 }else{
 
