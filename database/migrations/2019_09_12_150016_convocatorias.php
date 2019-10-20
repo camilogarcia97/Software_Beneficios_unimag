@@ -15,7 +15,7 @@ class Convocatorias extends Migration
     {
         Schema::create('convocatorias', function (Blueprint $table) {           
             $table->timestamps();
-            $table->integer('id_Administrador');
+            // $table->integer('id_Administrador');
             $table->integer('periodo');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');

@@ -13,6 +13,13 @@
 
 Route::resource('/ayudantias', 'EstudianteController');
 
+Route::resource('/cafeteria', 'EmpleadoController');
+
 Route::resource('/admin', 'AdminController');
 
+Route::resource('/listaBeneficiarios', 'BeneficiarioController');
+
+Route::resource('/director', 'C');
+
+Route::post('/Login', 'Auth\LoginController@login')->name('/Login');
 

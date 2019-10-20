@@ -63,9 +63,7 @@ body{
 	height: 80px;
 }
 
-
 .nav-item.headerNav{
-
 	padding: 10px;
 	color: #fff;
 	border-right: 1px solid #415b91;
@@ -85,28 +83,7 @@ body{
 	cursor: pointer;
 }
 
-.form-group h6{
-	color: #337ab7;
-}
-
-.titulo_Numero_de_cupos{
-	color: #337ab7;
-}
-
-.date{
-
-	margin-bottom: 10px;
-}
-
-.navbar-toggler{
-	background-color: lightblue;
-	
-}
-.navbar-toggler-icon {
-
-}
 /*<---------------------Arriba header--------------------->*/
-
 
 .footer{
 	position: absolute;
@@ -140,27 +117,25 @@ body{
 		height: 70px;
 		width: 414px !important;
 	}
-
 }
 
 @media screen and (max-width: 425px) {
 	.imglarga{
 		display: none;
 	}
-
-
+}
 
 /*<---------------------Arriba footer--------------------->*/
 
 
 .hero_row{
-	margin: 50px 0 200px 0;
+	padding: 15px 0 15px 0;
 }
 
 .loguin_recuadro{
 	border: 1px solid #3a7eb9;
 	border-radius: 5px;
-	padding: 
+	border-top: 2px solid #3a7eb9;
 }
 
 .titulo{
@@ -168,7 +143,7 @@ body{
 	border-top-left-radius: 2.5px;
 	border-top-right-radius: 2.5px;
 	border-bottom: 1px solid #3a7eb9;
-	background-color: #c08e2d;
+	background-color: #337ab7;
 }
 
 .loguin_titulo p{
@@ -209,15 +184,43 @@ body{
 	margin-bottom: 10px;
 	border-style: none;
 	border-radius: 10px;
-	background-color:#003A6B ;
+	background-color: #97d328;
 	color: white;
+	outline: none;
 }
 
 .boton_entrar:hover{
-	background-color: #004A87;
-    border-color: #269abc;
+	background-color: #b2f733;
+	color: green;
+	border: green solid 1px;
 }
 
-.seccion2{
+.boton_entrar:active{
+	transform: scale(0.95);
+	outline: none;
+}
 
+.primer_boton{
+	margin: 10px 0 10px 0;
+}
+
+.modal-body h6{
+	margin-top: 5px;
+}
+
+.beneficios_check{
+	padding-left: 25px;
+}
+
+.enviar{
+	color: white;
+	background: #97d328;
+}
+.cerrar{
+	color: white;
+	background:  #dc3545;
+}
+
+.seccion2_fila{
+	margin-bottom: 150px;
 }

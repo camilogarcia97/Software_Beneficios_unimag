@@ -15,8 +15,8 @@ class Fallas extends Migration
     {
         Schema::create('fallas', function (Blueprint $table) {
             $table->timestamps();
-            $table->integer('id_falla');
-            $table->date('fecha_de_la_falla');
+            $table->integer('id_beneficiario');
+            $table->integer('falla');
         });
     }
 

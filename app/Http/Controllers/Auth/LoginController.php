@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Director;
 use App\Admin;
+use App\Empleado;
 
 
 class LoginController extends Controller
@@ -30,6 +31,12 @@ class LoginController extends Controller
 
             return redirect ('/admin');
 
+        }else if (Empleado::where('idEmpleado',$info['codigoLogin'])
+                        ->where('contraseña',$info['contraseñaLogin'])
+                        ->exists() ){
+          
+           return redirect ('/cafeteria'); 
+           // return "soy empleado";
         }
 
 

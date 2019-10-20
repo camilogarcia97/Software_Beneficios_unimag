@@ -15,7 +15,6 @@ class Beneficiarios extends Migration
     {
         Schema::create('beneficiarios', function (Blueprint $table) {
             $table->timestamps();
-            $table->integer('idFalla');
             $table->integer('sede');
             $table->integer('id_beneficio');
             $table->integer('id_inscrito');

@@ -1,5 +1,6 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,10 +8,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/moduloAdministrador.css">
+    <link rel="stylesheet" href="../css/cafeteriaRegister.css">
     <link rel="stylesheet" href="../css/iconos.css">
 
-    <title>Modal Admin</title>
+    <title>Unimag Beneficios</title>
   </head>
   <body>
     <header class="cabecera">
@@ -36,7 +37,7 @@
           <div class="row navbarBg">
             <div class="col-10 offset-1">
               <div class="row">
-                  <div class="col-6 col-lg-4 Brand">
+                  <div class="col-4 Brand">
                       <a href="">
                         <img src="../img/LogoUnimag.png" alt="">
                         <h1>GRUPO DE ADMISIONES, REGISTRO Y CONTROL ACADÉMICO 
@@ -46,8 +47,8 @@
                       </a>
                   </div>
                   <nav class="navbar navbar-expand-lg ">
-                  <button class="navbar-toggler btn-primary " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon ">...</span>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
@@ -56,7 +57,7 @@
                       <a class="nav-item nav-link headerNav" href="#">Oferta academica</a>
                       <a class="nav-item nav-link headerNav" href="#">Investigacion</a>
                       <a class="nav-item nav-link headerNav" href="#">Extension</a>
-                      <a class="nav-item nav-link headerNav" href="#"" >Internacionalizacion</a>
+                      <a class="nav-item nav-link headerNav" href="#">Internacionalizacion</a>
                       <a  class="icon-buscar"></a>
                     </div>
                   </div>
@@ -66,67 +67,93 @@
          </div>
       </div>
     </header>
+
+  
+      
+    <div class="container-fluid hero">
+      <div class="row hero_row">
+        @if($datosBeneficiario ?? '')
+        <div class="col-lg-4 offset-lg-4">
+            <div class="row text-center">
+              <div class="col">
+                <h2>
+                  {{
+                    ucfirst($datosBeneficiario->primer_apellido)." ".ucfirst($datosBeneficiario->segundo_apellido)
+                    ." ".ucfirst($datosBeneficiario->primer_nombre)." ".ucfirst($datosBeneficiario->segundo_nombre)
+                  }}
+                </h2> 
+              </div>
+            </div>
+
+            <div class="row text-center">
+              <div class="col">
+                <h2>{{$datosBeneficiario->id_inscrito}}</h2> 
+              </div>
+            </div>
+          <div class="row  text-center">
+            <div class="col mt-auto text-danger">
+              <h5 >Fallas:</h5><h2 class="mt-auto">{{$datosBeneficiario->falla}}</h2>
+            </div>
+            <div class="col mt-auto">
+              <h5 >Beneficio:</h5>
+              <h3 class="mt-auto">
+                @if($datosBeneficiario->idBeneficio == 100) 
+                  Almuerzo
+                @else                    
+                  Refrigerio
+                @endif  
+              </h3>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center text-success">
+            <div class="pb-1 icon-mail"></div>
+            <h4 class="">!Entrega exitosa!</h4> 
+          </div>
+        </div>
+        @endif
+        <div class="col-lg-4 offset-lg-4 col-sm-12">
+          <form action="/cafeteria" method="POST">
+            {{csrf_field()}}
+              <div class="row">
+                <div class="col-12 form-group">
+                  <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codigo" id="codigo" required="">
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-12 boton_contenedor">
+                    <button type="submit" class="boton_entrar">Entregar beneficio</button>
+                  </div>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     
-    <div class="container">
-      <div class="row ">
-        <div class="col d-flex justify-content-center m-2">
-          <a href="/admin/create" class="btn btn-primary">Crear convocatoria</a>
-        </div>
-        
-        <div class="col d-flex justify-content-center m-2">
-          <form action="/listaBeneficiarios" method="POST">
-           <button type="submit" class="btn btn-primary ">Sortear beneficios</button>
-         </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col overflow-auto">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-               <!--  <th scope="col">id_administrador</th> -->
-                <th scope="col">perido</th>
-                <th scope="col">f_inicio</th>
-                <th scope="col">f_fin</th>
-                <th scope="col">cupo almuerzos</th>
-                <th scope="col">cupo refrigerio</th>
-                <th scope="col">id_convocatoria</th>
-                <th scope="col">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach($datos as $eso)
-              <tr>
-                <!-- <th>{{$eso->id_Administrador}}</th> -->
-                <td>{{$eso->periodo}}</td>
-                <td>{{$eso->fecha_inicio}}</td>
-                <td>{{$eso->fecha_fin}}</td>
-                <td>{{$eso->numero_cupos_almuerzos}}</td>
-                <td>{{$eso->numero_cupos_refrigerios}}</td>
-                <td>{{$eso->id}}</td>
-                <td> <a href="/admin/{{$eso->id}}/edit"> Editar </a> </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-
-        </div>
-      </div>
-    </div>
-
     <footer class="container-fluid footer">
-        <div class="col-lg-10 offset-lg-1 contenedor-imagenes">
+        <div class="d-flex justify-content-center contenedor-imagenes m-2">
             <img src="../img/LogoUnimag.png" alt="">
             <img src="../img/2footer.png" alt="">
             <img src="../img/3footer.png" alt="">
             <img src="../img/4footer.png" alt="">
-            <img class="imglarga" src="../img/5footer.png" alt="">    
+            <img class="imglarga" src="../img/5footer.png" alt="">
         </div>
     </footer>
 
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Registro a convocatoria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+    </div>
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -134,6 +161,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
-
- 
 </html>

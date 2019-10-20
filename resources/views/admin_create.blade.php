@@ -67,27 +67,27 @@
       </div>
     </header>
 
-    <div class="container">
+    <div class="container ">
       <div class="row">
-        <div class="col">
+        <div class="col-md-4 offset-md-1 ">
           <h1>Administrador</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-8">
+        <div class="col-md-4 offset-md-1 border border-ligth rounded ">
           <form action="/admin" method="POST">
-            <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio">
-            <input class="form-control" type="date" name="  fecha_fin" id=" fecha_fin">
-            <input class="form-control" type="text" name="numero_cupos_almuerzos" id="numero_cupos_almuerzos" placeholder="almuerzos">
-            <input class="form-control" type="text" name="numero_cupos_refrigerios" id="numero_cupos_refrigerios" placeholder="registro">
+            <input class="form-control m-1 " type="date" name="fecha_inicio" id="fecha_inicio">
+            <input class="form-control m-1 " type="date" name="  fecha_fin" id=" fecha_fin">
+            <input class="form-control m-1 " type="text" name="numero_cupos_almuerzos" id="numero_cupos_almuerzos" placeholder="almuerzos">
+            <input class="form-control m-1 " type="text" name="numero_cupos_refrigerios" id="numero_cupos_refrigerios" placeholder="refrigerios">
           
-            <input class="form-control" type="text" name="id_Administrador" id="id_Administrador" placeholder="id_Administrador">
+            <!-- <input class="form-control m-1 " type="text" name="id_Administrador" id="id_Administrador" placeholder="id_Administrador"> -->
           
-            <input class="form-control" type="text" name="periodo" id="periodo" placeholder="periodo">
+            <input class="form-control m-1 " type="text" name="periodo" id="periodo" placeholder="periodo">
           
-            <input class="form-control" type="text" name="id" id="id" placeholder="idConvocatoria">
+            <input class="form-control m-1 " type="text" name="id" id="id" placeholder="idConvocatoria">
           
-            <input class="btn btn-primary m-2" type="submit" >
+            <input value="Crear" class="btn btn-primary m-2 " type="submit" >
           </form>
         </div>
       </div>
