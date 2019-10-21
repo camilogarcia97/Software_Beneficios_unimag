@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Empleado;
 use App\Beneficiario;
-
+use Carbon\Carbon;
+use App\Beneficio;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -38,13 +39,48 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
+        $now = Carbon::now();
+        $horaActual = $now->format('H');
+        $fechaActual = $now->format('y-m-d');
+
        $codigo=$request->get('codigo');
         $datosBeneficiario = Beneficiario::where('id_inscrito',$codigo)
                                             ->join('estudiantes','id','=','id_inscrito')
                                             ->join('fallas','id_beneficiario','=','id_inscrito')
                                             ->first();
-        // dd($datosBeneficiario);
-        return view('cafeteriaRegister',compact('datosBeneficiario'));
+
+         $beneficioReclamado = Beneficio::where('id_estudiante',$codigo)->first();
+
+        
+            if($datosBeneficiario->id_beneficio == 100 && ($horaActual >= 11 && $horaActual <= 2) && $datosBeneficiario->falla < 3){
+                
+                $reclamado = new Beneficio();
+                $reclamado->id_estudiante = $datosBeneficiario->id_inscrito;
+                $reclamado->reclamado = 1;
+                
+                if($beneficioReclamado!=null && $fechaActual==$beneficioReclamado->created_at->format('y-m-d')){
+                    $entregar = false;
+                }else{
+                    $entregar = true;
+                    $reclamado->save();
+                }
+            }elseif($datosBeneficiario->id_beneficio == 200 && $datosBeneficiario->falla < 3){
+
+                $reclamado = new Beneficio();
+                $reclamado->id_estudiante = $datosBeneficiario->id_inscrito;
+                $reclamado->reclamado = 1;
+
+                if($beneficioReclamado!=null && $fechaActual==$beneficioReclamado->created_at->format('y-m-d')){
+                    $entregar = false;
+                }else{
+                    $entregar = true;
+                    $reclamado->save();
+                }
+            }else{
+                $entregar = false;
+            }
+        
+        return view('cafeteriaRegister',compact('datosBeneficiario','entregar'));
     }
 
     /**
