@@ -14,7 +14,9 @@ class Beneficios extends Migration
     public function up()
     {
         Schema::create('beneficios', function (Blueprint $table) {
-            $table->integer('idBeneficio');
+            $table->integer('id_estudiante');
+            $table->boolean('reclamado');
+            $table->timestamps();
         });
     }
 

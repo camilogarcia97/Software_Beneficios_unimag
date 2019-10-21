@@ -97,7 +97,7 @@
             <div class="col mt-auto">
               <h5 >Beneficio:</h5>
               <h3 class="mt-auto">
-                @if($datosBeneficiario->idBeneficio == 100) 
+                @if($datosBeneficiario->id_beneficio == 100) 
                   Almuerzo
                 @else                    
                   Refrigerio
@@ -105,10 +105,22 @@
               </h3>
             </div>
           </div>
-          <div class="d-flex justify-content-center align-items-center text-success">
-            <div class="pb-1 icon-mail"></div>
-            <h4 class="">!Entrega exitosa!</h4> 
-          </div>
+          @if($entregar == true)
+            <div class="d-flex justify-content-center align-items-center text-success">
+              <div class="pb-1 icon-mail"></div>
+              <h4 class="">!Entrega exitosa!</h4> 
+            </div>
+            @elseif($entregar == true)
+            <div class="d-flex justify-content-center align-items-center text-success">
+              <div class="pb-1 icon-mail"></div>
+              <h4 class="">!Entrega exitosa!</h4> 
+            </div>
+            @else
+            <div class="d-flex justify-content-center align-items-center text-danger">
+              <div class="pb-1 icon-delete-user"></div>
+              <h4 class="">No puede recibir el beneficio</h4> 
+            </div>
+            @endif
         </div>
         @endif
         <div class="col-lg-4 offset-lg-4 col-sm-12">
