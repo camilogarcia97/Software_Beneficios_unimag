@@ -19,7 +19,6 @@ Route::resource('/admin', 'AdminController');
 
 Route::resource('/listaBeneficiarios', 'BeneficiarioController');
 
-Route::resource('/director', 'C');
+Route::resource('/director', 'DirectorController');
 
 Route::post('/Login', 'Auth\LoginController@login')->name('/Login');
-

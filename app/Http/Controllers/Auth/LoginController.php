@@ -23,7 +23,7 @@ class LoginController extends Controller
                     ->where('contraseña',$info['contraseñaLogin'])
                     ->exists() ){
 
-            return "eres director";
+            return redirect('/director');
 
         }else if(Admin::where('idAdministrador',$info['codigoLogin'])
                         ->where('contraseña',$info['contraseñaLogin'])

@@ -11,6 +11,69 @@
     <link rel="stylesheet" href="../css/cafeteriaRegister.css">
     <link rel="stylesheet" href="../css/iconos.css">
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Lunes',     {{$Lunes}}],
+          ['Martes',      {{$Martes}}],
+          ['Miercoles',  {{$Miercoles}}],
+          ['Jueves', {{$Jueves}}],
+          ['Viernes',    {{$Viernes}}]
+        ]);
+
+        var options = {
+          title: 'Cantidad de estudiantes que reclaman beneficios'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+
+      google.charts.setOnLoadCallback(drawChart2);
+      function drawChart2() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Almuerzo',     {{$sede1Almuerzo}}],
+          ['Refrigerio',      {{$sede1Refrigerio}}]
+        ]);
+
+        var options = {
+          title: 'Cantidad de estudiantes que reclaman beneficio en la sede principal'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+
+      google.charts.setOnLoadCallback(drawChart3);
+      function drawChart3() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Almuerzo',     {{$sede2Almuerzo}}],
+          ['Refrigerio',      {{$sede2Refrigerio}}]
+        ]);
+
+        var options = {
+          title: 'Cantidad de estudiantes que reclaman beneficio en la sede secundaria'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
     <title>Unimag Beneficios</title>
   </head>
   <body>
@@ -68,66 +131,173 @@
       </div>
     </header>
 
-  
-      
-    <div class="container-fluid hero">
-      <div class="row hero_row">
-        @if($datosBeneficiario ?? '')
-        <div class="col-lg-4 offset-lg-4">
-            <div class="row text-center">
-              <div class="col">
-                <h2>
-                  {{
-                    ucfirst($datosBeneficiario->primer_apellido)." ".ucfirst($datosBeneficiario->segundo_apellido)
-                    ." ".ucfirst($datosBeneficiario->primer_nombre)." ".ucfirst($datosBeneficiario->segundo_nombre)
-                  }}
-                </h2> 
-              </div>
-            </div>
 
-            <div class="row text-center">
-              <div class="col">
-                <h2>{{$datosBeneficiario->id_inscrito}}</h2> 
-              </div>
-            </div>
-          <div class="row  text-center">
-            <div class="col mt-auto text-danger">
-              <h5 >Fallas:</h5><h2 class="mt-auto">{{$datosBeneficiario->falla}}</h2>
-            </div>
-            <div class="col mt-auto">
-              <h5 >Beneficio:</h5>
-              <h3 class="mt-auto">
-                @if($datosBeneficiario->idBeneficio == 100) 
-                  Almuerzo
-                @else                    
-                  Refrigerio
-                @endif  
-              </h3>
-            </div>
-          </div>
-          <div class="d-flex justify-content-center align-items-center text-success">
-            <div class="pb-1 icon-mail"></div>
-            <h4 class="">!Entrega exitosa!</h4> 
-          </div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="Estadisticas-tab" data-toggle="tab" href="#Estadisticas" role="tab" aria-controls="Estadisticas" aria-selected="true">Estadisticas de los beneficios</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="Proveedores-tab" data-toggle="tab" href="#Proveedores" role="tab" aria-controls="Proveedores" aria-selected="false">Proveedores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="Estudiantes-tab" data-toggle="tab" href="#Estudiantes" role="tab" aria-controls="Estudiantes" aria-selected="false">Estudiantes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="cafeteria-tab" data-toggle="tab" href="#cafeteria" role="tab" aria-controls="cafeteria" aria-selected="false">Dueños de Cafeteria</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="asistentes-tab" data-toggle="tab" href="#asistentes" role="tab" aria-controls="asistentes" aria-selected="false">Asistentes de bienestar</a>
+  </li>
+</ul>
+
+  <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="Estadisticas" role="tabpanel" aria-labelledby="Estadisticas-tab" >
+        <div class="d-flex">
+          <div id="piechart" style="width: 500px; height: 450px;"></div>
+          <div id="piechart2" style="width: 500px; height: 450px;"></div>
+          <div id="piechart3" style="width: 500px; height: 450px;"></div>
         </div>
-        @endif
-        <div class="col-lg-4 offset-lg-4 col-sm-12">
-          <form action="/cafeteria" method="POST">
-            {{csrf_field()}}
-              <div class="row">
-                <div class="col-12 form-group">
-                  <input type="text" class="form-control loguin_codigo" placeholder="Código" name="codigo" id="codigo" required="">
-                </div>
-              </div>
-              <div class="row">
-                  <div class="col-12 boton_contenedor">
-                    <button type="submit" class="boton_entrar">Entregar beneficio</button>
-                  </div>
-                </div>
-          </form>
+          
         </div>
-      </div>
+
+    <div class="tab-pane fade" id="Proveedores" role="tabpanel" aria-labelledby="Proveedores-tab">
+    <table class="table">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">#</th>
+      <th scope="col">Nombre de la empresa</th>
+      <th scope="col">Mercancia</th>
+      <th scope="col">Nombre de contacto</th>
+      <th scope="col">Numero de contacto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <th scope="row">1</th>
+      <td>Alfaix</td>
+      <td>Jugo de Naranja</td>
+      <td>Rafael Garcia</td>
+      <td>321564889</td>
+    </tr>
+    <tr class="text-center">
+      <th scope="row">2</th>
+      <td>Postobon s.a</td>
+      <td>Jugos en caja</td>
+      <td>Sergio Fernandez</td>
+      <td>3219987758</td>
+    </tr>
+    <tr class="text-center">
+      <th scope="row">3</th>
+      <td>plasticworld</td>
+      <td>platos y vasos</td>
+      <td>Kayris Arias</td>
+      <td>3215634789</td>
+    </tr>
+    <tr class="text-center">
+      <th scope="row">4</th>
+      <td>res&res</td>
+      <td>carne de res</td>
+      <td>willian hernandez</td>
+      <td>3154896633</td>
+    </tr>
+  </tbody>
+</table>
     </div>
+
+    <div class="tab-pane fade" id="Estudiantes" role="tabpanel" aria-labelledby="Estudiantes-tab">
+    <table class="table table-striped">
+            <thead>
+              <tr>
+              <th class="text-center" scope="col">Codigo</th>
+                <th class="text-center" scope="col">Nombre</th>
+                <th class="text-center" scope="col">Apellido</th>
+                <th class="text-center" scope="col">Fallas</th>
+                <th class="text-center" scope="col">Estrato</th>
+                <th class="text-center" scope="col">Sede</th>
+                <th class="text-center" scope="col">Beneficio</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($datos as $eso)
+              <tr>
+                <th class="text-center">{{$eso->id_inscrito}}</th>
+                <th class="text-center">{{$eso->primer_nombre}}</th>
+                <th class="text-center">{{$eso->primer_apellido}}</th>
+                <th class="text-center">{{$eso->falla}}</th>
+                <th class="text-center">{{$eso->estrato}}</th>
+                <td class="text-center">@if($eso->sede == 1)
+                      <h6>Principal</h6>
+                    @else
+                     <h6>Centro</h6> 
+                    @endif</td>
+                <td class="text-center">@if($eso->id_beneficio == 100)
+                      <h6>Almuerzo</h6>
+                    @else
+                     <h6>Refrigerio</h6> 
+                    @endif</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+    </div>
+
+    <div class="tab-pane fade" id="cafeteria" role="tabpanel" aria-labelledby="cafeteria-tab">
+    <table class="table">
+  <thead>
+  <tr class="text-center">
+      <th scope="col">Sede</th>
+      <th scope="col">Adminitrador en curso</th>
+      <th scope="col">Fecha de inicio contracto</th>
+      <th scope="col">Fecha de fin contracto</th>
+      <th scope="col">Numero de contacto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <td scope="row">Principal</td>
+      <td>Ricardo Marquez</td>
+      <td>12/06/2015</td>
+      <td>12/06/2020</td>
+      <td>3013419963</td>
+    </tr>
+    <tr class="text-center">
+      <td scope="row">Centro</td>
+      <td>Edwin Gutierrrez</td>
+      <td>21/01/2018</td>
+      <td>21/01/2023</td>
+      <td>3219985558</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+
+    <div class="tab-pane fade" id="asistentes" role="tabpanel" aria-labelledby="asistentes-tab">
+    <table class="table table-striped">
+            <thead>
+              <tr>
+              <th class="text-center" scope="col">Codigo</th>
+                <th class="text-center" scope="col">Nombre</th>
+                <th class="text-center" scope="col">S.Nombre</th>
+                <th class="text-center" scope="col">Apellido</th>
+                <th class="text-center" scope="col">S.Apellido</th>
+                <th class="text-center" scope="col">Sede</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach($empleados as $empleado)
+              <tr>
+                <td class="text-center">{{$empleado->idEmpleado}}</td>
+                <td class="text-center">{{$empleado->primer_nombre}}</td>
+                <td class="text-center">{{$empleado->segundo_nombre}}</td>
+                <td class="text-center">{{$empleado->primer_apellido}}</td>
+                <td class="text-center">{{$empleado->segundo_apellido}}</td>
+                <td class="text-center">{{$empleado->sede}}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+    </div>
+  </div>
 
     
     <footer class="container-fluid footer">
