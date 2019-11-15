@@ -153,9 +153,9 @@
   <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="Estadisticas" role="tabpanel" aria-labelledby="Estadisticas-tab" >
         <div class="d-flex">
-          <div id="piechart" style="width: 500px; height: 450px;"></div>
-          <div id="piechart2" style="width: 500px; height: 450px;"></div>
-          <div id="piechart3" style="width: 500px; height: 450px;"></div>
+            <div id="piechart" style="width: 500px; height: 450px;"></div>
+            <div id="piechart2" style="width: 500px; height: 450px;"></div>
+            <div id="piechart3" style="width: 500px; height: 450px;"></div>
         </div>
           
         </div>
