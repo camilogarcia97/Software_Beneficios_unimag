@@ -66,7 +66,7 @@
          </div>
       </div>
     </header>
-
+@if($error == '')
     <div class="container ">
       <div class="row">
         <div class="col-md-4 offset-md-1 ">
@@ -76,22 +76,32 @@
       <div class="row">
         <div class="col-md-4 offset-md-1 border border-ligth rounded ">
           <form action="/admin" method="POST">
-            <input class="form-control m-1 " type="date" name="fecha_inicio" id="fecha_inicio">
-            <input class="form-control m-1 " type="date" name="  fecha_fin" id=" fecha_fin">
-            <input class="form-control m-1 " type="text" name="numero_cupos_almuerzos" id="numero_cupos_almuerzos" placeholder="almuerzos">
-            <input class="form-control m-1 " type="text" name="numero_cupos_refrigerios" id="numero_cupos_refrigerios" placeholder="refrigerios">
+            <input class="form-control m-1 " type="date" name="fecha_inicio" id="fecha_inicio" required>
+            <input class="form-control m-1 " type="date" name="fecha_fin" id=" fecha_fin" required>
+            <input class="form-control m-1 " type="text" name="numero_cupos_almuerzos" id="numero_cupos_almuerzos" placeholder="almuerzos" required>
+            <input class="form-control m-1 " type="text" name="numero_cupos_refrigerios" id="numero_cupos_refrigerios" placeholder="refrigerios" required>
           
             <!-- <input class="form-control m-1 " type="text" name="id_Administrador" id="id_Administrador" placeholder="id_Administrador"> -->
           
-            <input class="form-control m-1 " type="text" name="periodo" id="periodo" placeholder="periodo">
+            <input class="form-control m-1 " type="text" name="periodo" id="periodo" placeholder="periodo" required>
           
-            <input class="form-control m-1 " type="text" name="id" id="id" placeholder="idConvocatoria">
+            <input class="form-control m-1 " type="text" name="id" id="id" placeholder="idConvocatoria" required>
           
             <input value="Crear" class="btn btn-primary m-2 " type="submit" >
           </form>
         </div>
       </div>
     </div>
+@else
+<div class="container mt-5">
+<div class="alert alert-danger" role="alert">
+{{$error}}
+</div>
+<a class="btn btn-primary" href="/admin/create" role="button">Reintentar</a>
+</div>
+
+
+@endif
 
     <footer class="container-fluid footer">
         <div class="col-lg-10 offset-lg-1 contenedor-imagenes">

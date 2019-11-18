@@ -86,11 +86,11 @@
         <div class="col overflow-auto">
           <table class="table table-striped">
             <thead>
-              <tr>
+              <tr class="text-center">
                <!--  <th scope="col">id_administrador</th> -->
                 <th scope="col">perido</th>
-                <th scope="col">f_inicio</th>
-                <th scope="col">f_fin</th>
+                <th scope="col">fecha inicio</th>
+                <th scope="col">fecha cierre</th>
                 <th scope="col">cupo almuerzos</th>
                 <th scope="col">cupo refrigerio</th>
                 <th scope="col">id_convocatoria</th>
@@ -107,7 +107,32 @@
                 <td>{{$eso->numero_cupos_almuerzos}}</td>
                 <td>{{$eso->numero_cupos_refrigerios}}</td>
                 <td>{{$eso->id}}</td>
-                <td> <a href="/admin/{{$eso->id}}/edit"> Editar </a> </td>
+                <td> <a  class="btn btn-primary" href="/admin/{{$eso->id}}/edit"> Editar </a> / <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                Eliminar
+                </button> </td>
+                <!-- Modal -->
+                <form action="/admin/{{$eso->id}}" method="POST">
+                @method('DELETE')
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ¿Esta seguro que quiere eliminar la convocatoria?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"  href="/admin">Cancelar</button>
+                        <input value="Eliminar" class="btn btn-danger m-2 " type="submit" >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </form>
               </tr>
               @endforeach
             </tbody>
@@ -116,7 +141,7 @@
         </div>
       </div>
     </div>
-
+    
     <footer class="container-fluid footer">
         <div class="col-lg-10 offset-lg-1 contenedor-imagenes">
             <img src="../img/LogoUnimag.png" alt="">
