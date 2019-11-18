@@ -106,6 +106,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        echo "joda";
+        Convocatoria::destroy($id);
+
+        return redirect ('/admin');
     }
 }
