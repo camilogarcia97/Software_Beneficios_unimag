@@ -25,7 +25,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('Admin_create');
+        
+        $error = "";
+            return view('Admin_create',compact('error'));
     }
 
     /**
@@ -36,7 +38,18 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $datosdelaconvocatoria = request()->all();
+
+        $fecha_inicio = $request->get('fecha_inicio');
+        $fecha_fin = $request->get('fecha_fin');
+
+        if($fecha_inicio < $fecha_fin){
+           $datosdelaconvocatoria = request()->all(); 
+           convocatoria::insert($datosdelaconvocatoria);
+           return redirect ('/admin');
+        }else{
+            $error = "la fecha de inicio debe ser menor a la de fin";
+            return view('Admin_create',compact('error'));
+        };
 
         convocatoria::insert($datosdelaconvocatoria);
         return redirect ('/admin');
@@ -93,6 +106,6 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo "joda";
     }
 }
